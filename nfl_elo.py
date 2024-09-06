@@ -153,6 +153,11 @@ def print_commands():
     print("5. Save and exit")
     print()
 
+def print_current_ratings(ratings):
+    print("Current Ratings:")
+    for team, rating in ratings.items():
+        print(f"{team}: {rating}")
+
 def main():
     elos_dict = read_file('elo_scores.csv')
     while True:
@@ -169,7 +174,7 @@ def main():
             team2_score = int(input("Enter the score for the second team: "))
             elos_dict = add_game_result(team1, team2, team1_score, team2_score, elos_dict)
         elif command == '3':
-            print(elos_dict)
+            print_current_ratings(elos_dict)
         elif command == '4':
             get_week_prediction_by_points(elos_dict)
         elif command == '5':
